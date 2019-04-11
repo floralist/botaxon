@@ -1,0 +1,4 @@
+.pytest_cache/
+.virtualenv/
+__pycache__/
+botaxon.egg-info/
