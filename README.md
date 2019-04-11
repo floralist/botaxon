@@ -9,7 +9,7 @@ It has been used against 3 million names. Not released yet, the tests are coming
 Usage
 -----
 
-```
+```python
 >>> import botaxon
 
 >>> botaxon.load("Plumeria")
