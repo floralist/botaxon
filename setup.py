@@ -12,7 +12,7 @@ setup(
     name="botaxon",
     version=get_version(),
     author="Geoffrey GUERET",
-    author_email="geoffrey@stocka.net",
+    author_email="geoffrey@gueret.tech",
 
     description="Taxonomic parser for (sub)species botanical names.",
     long_description=open(os.path.join(BASEDIR_PATH, "README.md"), "r").read(),
