@@ -144,7 +144,10 @@ def load(scientific_name, hybrid_marker=DEFAULT_HYBRID_MARKER):
 
         return subtaxon_cls(species, infraspecific_epithet)
 
-    species_name = "{} {}".format(species_name, " ".join(scientific_name))
+    species_name = "{} {}".format(species_name, verbatim_rank_or_species_name_leftover)
+
+    if scientific_name:
+        raise InvalidSpeciesError("got leftovers: %s", scientific_name)
 
     if hybrid_marker in species_name:
         raise InvalidSpeciesError()
