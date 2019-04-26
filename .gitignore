@@ -3,3 +3,4 @@
 __pycache__/
 botaxon.egg-info/
 *.sublime-project
+*.sublime-workspace
