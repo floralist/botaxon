@@ -16,3 +16,9 @@ def test_single_subspecies_with_hybrid_marker_on_species(test_input):
     parsed = botaxon.load(test_input)
     assert isinstance(parsed, botaxon.SubSpeciesResult)
     assert botaxon.load(test_input).name == test_input
+
+
+@pytest.mark.parametrize("test_input", ["some composed species subsp. something"])
+def test_single_subspecies_with_composed_species(test_input):
+    with pytest.raises(botaxon.InvalidSpeciesError):
+        botaxon.load(test_input)
