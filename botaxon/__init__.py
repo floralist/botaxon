@@ -26,7 +26,8 @@ class SubTaxonMixin(object):
 
     @property
     def name(self):
-        return "{self.species.name} {self.verbatim_rank} {self.epithet}".format(self=self)
+        return "{self.species.name} {self.verbatim_rank} " \
+               "{self.epithet}".format(self=self)
 
 
 _GenusResult = namedtuple("Genus", "epithet is_hybrid")
@@ -42,7 +43,9 @@ class GenusResult(_GenusResult):
 
     @property
     def name(self):
-        name_prefix = "{} ".format(DEFAULT_HYBRID_MARKER) if self.is_hybrid else ""
+        name_prefix = str()
+        if self.is_hybrid:
+            name_prefix = "{} ".format(DEFAULT_HYBRID_MARKER)
         return name_prefix + self.epithet
 
 
@@ -50,8 +53,11 @@ class SpeciesResult(_SpeciesResult):
 
     @property
     def name(self):
-        name_prefix = "{} ".format(DEFAULT_HYBRID_MARKER) if self.is_hybrid else ""
-        return "{self.genus.name} {prefix}{self.epithet}".format(self=self, prefix=name_prefix)
+        name_prefix = str()
+        if self.is_hybrid:
+            name_prefix = "{} ".format(DEFAULT_HYBRID_MARKER)
+        return "{self.genus.name} {prefix}{self.epithet}".format(
+            self=self, prefix=name_prefix)
 
 
 class SubSpeciesResult(_SubSpeciesResult, SubTaxonMixin):
@@ -136,7 +142,8 @@ def load(scientific_name, hybrid_marker=DEFAULT_HYBRID_MARKER):
         infraspecific_rank = verbatim_rank_or_species_name_leftover
 
         if not scientific_name:
-            raise InvalidSubTaxonError("species must be followed by an epithet")
+            raise InvalidSubTaxonError(
+                "species must be followed by an epithet")
 
         infraspecific_epithet = " ".join(scientific_name)
         subtaxon_cls = VERBATIM_RANKS.get(infraspecific_rank)
@@ -146,7 +153,8 @@ def load(scientific_name, hybrid_marker=DEFAULT_HYBRID_MARKER):
 
         return subtaxon_cls(species, infraspecific_epithet)
 
-    species_name = "{} {}".format(species_name, verbatim_rank_or_species_name_leftover)
+    species_name = "{} {}".format(
+        species_name, verbatim_rank_or_species_name_leftover)
 
     if scientific_name:
         raise InvalidSpeciesError("got leftovers: {}".format(scientific_name))
