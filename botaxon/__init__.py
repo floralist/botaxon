@@ -2,7 +2,7 @@
 
 from collections import deque, namedtuple
 
-__VERSION__ = "0.1a0"
+__VERSION__ = "0.1"
 DEFAULT_HYBRID_MARKER = "×"
 
 

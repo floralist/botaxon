@@ -7,7 +7,8 @@ botaxon
 
 botaxon is a taxonomic parser for (sub)species botanical names.
 
-It has been used against 3 million names. Not released yet, the tests are coming !
+It has been used against 3 million names.
+It aims to be fast and efficient.
 
 
 Usage
