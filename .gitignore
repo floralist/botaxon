@@ -1,4 +1,5 @@
 .pytest_cache/
+.tox/
 .virtualenv/
 __pycache__/
 botaxon.egg-info/
