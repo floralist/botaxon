@@ -16,6 +16,7 @@ setup(
 
     description="Taxonomic parser for (sub)species botanical names.",
     long_description=open(os.path.join(BASEDIR_PATH, "README.md"), "r").read(),
+    long_description_content_type="text/markdown",
     url="https://github.com/ggueret/botaxon",
     license="MIT",
 
