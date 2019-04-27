@@ -3,5 +3,7 @@
 .virtualenv/
 __pycache__/
 botaxon.egg-info/
+build/
+dist/
 *.sublime-project
 *.sublime-workspace
