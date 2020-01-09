@@ -138,7 +138,7 @@ def load(scientific_name, hybrid_marker=DEFAULT_HYBRID_MARKER):
         return species
 
     verbatim_rank_or_species_name_leftover = scientific_name.popleft()
-    if verbatim_rank_or_species_name_leftover in VERBATIM_RANKS.keys():
+    if verbatim_rank_or_species_name_leftover in VERBATIM_RANKS:
         infraspecific_rank = verbatim_rank_or_species_name_leftover
 
         if not scientific_name:
